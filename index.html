@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Voltix Shop – Matériel électrique</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap">
+<style>
+:root{--bg:#f3f6ff;--card:#fff;--tx:#0b1230;--mut:#5a6584;--bd:#e3e8f6;--ink:#0a1230;--pr:#2358ff;--pr2:#5b3dff;--ac:#ffd23f;--lo:#2358ff;--hi:#e5484d;--soft:#eaf0ff;--hf:Sora,"Segoe UI",system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#080d1f;--card:#111936;--tx:#eef2ff;--mut:#9aa6cc;--bd:#222c55;--ink:#050816;--soft:#18214a;--lo:#7aa2ff;--hi:#ff6b70}}
+:root[data-theme="dark"]{--bg:#080d1f;--card:#111936;--tx:#eef2ff;--mut:#9aa6cc;--bd:#222c55;--ink:#050816;--soft:#18214a;--lo:#7aa2ff;--hi:#ff6b70}
+html{scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 Inter,-apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3,.logo,.tot,.pr strong,.kpi b,footer b{font-family:var(--hf)}
+.w{max-width:1120px;margin:0 auto;padding:0 18px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)}
+nav .w{display:flex;align-items:center;gap:10px;height:66px}
+.logo{display:flex;align-items:center;gap:10px;flex:1;cursor:pointer;border:0;background:none;color:var(--tx);padding:0;font-weight:700;font-size:20px;letter-spacing:-.01em}
+.bolt{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--pr),var(--pr2));display:grid;place-items:center;box-shadow:0 6px 16px rgba(35,88,255,.35)}
+.bolt svg{fill:var(--ac)}
+.cartb{display:flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid var(--bd);border-radius:999px;background:var(--card);color:var(--tx);font:600 15px Inter,sans-serif;cursor:pointer}
+.cartb i{font-style:normal;min-width:22px;height:22px;border-radius:11px;background:var(--ac);color:#0a1230;font-size:13px;font-weight:700;display:grid;place-items:center;padding:0 6px}
+.test{background:var(--ac);color:#0a1230;text-align:center;font-size:13px;font-weight:600;padding:5px 8px}
+.hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(900px 400px at 85% -10%,rgba(91,61,255,.55),transparent 60%),radial-gradient(700px 380px at 0% 110%,rgba(35,88,255,.6),transparent 60%),#0a1230}
+.hero::after{content:"";position:absolute;right:-30px;top:-20px;width:340px;height:340px;opacity:.1;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffd23f'%3E%3Cpath d='M13 2 4 14h6l-1 8 9-12h-6z'/%3E%3C/svg%3E") no-repeat center/contain;pointer-events:none}
+.hero .w{position:relative;z-index:1;padding-top:44px;padding-bottom:52px}
+.eb{display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);font-size:14px;font-weight:500;margin-bottom:16px}
+.hero h1{font-weight:800;font-size:clamp(34px,7vw,58px);line-height:1.05;letter-spacing:-.03em;margin:0 0 14px;max-width:700px}
+.hero p{margin:0 0 24px;opacity:.82;max-width:560px;font-size:17px}
+.hero input{width:100%;max-width:580px;padding:17px 18px 17px 48px;border:0;border-radius:16px;font:inherit;font-size:17px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235a6584' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 17px center;color:#0b1230;box-shadow:0 12px 32px rgba(0,0,0,.28)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:-26px 0 8px;position:relative;z-index:2}
+@media(max-width:700px){.how{grid-template-columns:1fr;margin-top:16px}}
+.how div{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:16px;box-shadow:0 8px 24px rgba(10,18,48,.08);display:grid;grid-template-columns:auto 1fr;gap:2px 12px}
+.how i{grid-row:span 2;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;font:700 17px var(--hf);display:grid;place-items:center;font-style:normal}
+.how b{font:700 16px var(--hf)}.how span{color:var(--mut);font-size:14px}
+.st{font-size:26px;font-weight:700;letter-spacing:-.02em;margin:26px 0 12px}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none}
+.cats button{flex:none;padding:10px 18px;border:1px solid var(--bd);border-radius:999px;background:var(--card);color:var(--tx);font:500 15px Inter,sans-serif;cursor:pointer}
+.cats button.on{background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;border-color:transparent;font-weight:600}
+.tools{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:0 0 14px}
+.tools select{width:auto;padding:9px 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.pc{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:4px;transition:transform .15s,box-shadow .15s,border-color .15s}
+@media(hover:hover){.pc:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(10,18,48,.12);border-color:var(--pr)}}
+.ic{height:88px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--t),transparent 130%),var(--soft);color:var(--c);margin-bottom:8px}
+.pc b{font-weight:600;line-height:1.3;min-height:2.6em;font-size:15px}
+.sm{color:var(--mut);font-size:14px}
+.pr{margin:6px 0 10px}.pr strong{font-size:22px;font-weight:700;letter-spacing:-.02em}
+.add{padding:12px 14px;border:0;border-radius:12px;background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;font:600 15px Inter,sans-serif;cursor:pointer}
+.pc .add{width:100%;margin-top:auto}
+.q{display:flex;align-items:center;gap:10px;margin-top:auto;justify-content:space-between}
+.q button{width:42px;height:42px;border-radius:12px;border:0;background:var(--soft);color:var(--pr);font-size:22px;font-weight:600;cursor:pointer}
+.q output{font-weight:600}
+.pg{padding:24px 0 40px}
+.pg h2{font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0 0 16px}
+.cols{display:grid;gap:14px}
+@media(min-width:800px){.cols{grid-template-columns:1.4fr 1fr;align-items:start}}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:6px 18px}
+.box.p{padding:20px;margin-bottom:14px}
+.box h3{font-size:19px;font-weight:700;margin:0 0 8px}
+.it{display:flex;align-items:center;gap:12px;padding:13px 0;border-top:1px solid var(--bd)}
+.it:first-child{border-top:0}
+.it .nm{flex:1;min-width:0}.it .nm b{font-weight:600;display:block}
+.it .q button{width:38px;height:38px}
+.tot{display:flex;justify-content:space-between;font-size:24px;font-weight:700;padding:4px 0 8px}
+label.f{display:block;font-size:14px;font-weight:500;color:var(--mut);margin:12px 0 5px}
+input[type=text],input[type=tel],input[type=email],input[type=password],input[type=number],select,textarea{width:100%;padding:13px 14px;border:1px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);font:inherit}
+input:focus,select:focus,textarea:focus,.hero input:focus{outline:none;border-color:var(--pr);box-shadow:0 0 0 3px rgba(35,88,255,.2)}
+textarea{min-height:76px}
+.btn{width:100%;padding:16px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;font:600 17px Inter,sans-serif;cursor:pointer;margin-top:8px;box-shadow:0 8px 20px rgba(35,88,255,.28)}
+.btn.alt{background:var(--card);color:var(--tx);border:1px solid var(--bd);box-shadow:none}
+#send{background:linear-gradient(135deg,#1fbf5b,#12a24a);box-shadow:0 8px 20px rgba(18,162,74,.3)}
+.err{color:var(--hi);margin:8px 0;display:none}
+.scr{display:none}.scr.on{display:block}
+footer{background:var(--ink);color:#b8c2e6;margin-top:28px}
+footer .w{padding-top:32px;padding-bottom:calc(32px + 70px + env(safe-area-inset-bottom,0px));display:grid;gap:6px;font-size:15px}
+footer b{color:#fff;font-size:22px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:#fff;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));display:none;z-index:6}
+.bar.on{display:block}
+.bar div{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.bar span{flex:1;font-weight:600}
+.bar button{padding:12px 22px;border:0;border-radius:12px;background:var(--ac);color:#0a1230;font:700 16px Inter,sans-serif;cursor:pointer}
+.au{display:grid;gap:22px;padding-top:28px;padding-bottom:36px}
+@media(min-width:800px){.au{grid-template-columns:1.1fr 1fr;align-items:stretch;padding-top:48px}}
+.au>div:first-child{background:radial-gradient(500px 300px at 90% 0%,rgba(91,61,255,.6),transparent 60%),#0a1230;color:#fff;border-radius:26px;padding:34px 28px;display:flex;flex-direction:column;justify-content:center}
+.au h1{font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin:0 0 18px}
+.au ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.au li::before{content:"✓ ";color:var(--ac);font-weight:700}
+.tabs{display:flex;gap:6px;background:var(--soft);border-radius:14px;padding:4px;margin-bottom:14px}
+.tabs button{flex:1;padding:11px;border:0;border-radius:11px;background:transparent;color:var(--mut);font:600 15px Inter,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--card);color:var(--tx);box-shadow:0 2px 8px rgba(10,18,48,.12)}
+.ck{display:flex;gap:10px;align-items:center;margin:7px 0;font-size:15px}.ck input{width:20px;height:20px;flex:none}
+.ar{flex-direction:column;align-items:stretch;gap:8px}.ar input{padding:10px}
+.ag3{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:6px}
+.ab{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sb{padding:9px 14px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);font:600 14px Inter,sans-serif;cursor:pointer}
+#atabs{overflow-x:auto;scrollbar-width:none}#atabs button{white-space:nowrap;padding:10px 12px}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.kpi div{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:12px;text-align:center}
+.kpi b{display:block;font-size:26px;font-weight:700}.kpi span{font-size:13px;color:var(--mut)}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);background:var(--ink);color:#fff;padding:11px 18px;border-radius:999px;font-weight:600;font-size:15px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:9;max-width:90vw;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.eye{background:none;border:0;color:var(--lo);font:600 14px Inter,sans-serif;cursor:pointer;padding:4px 0}
+.ft{background:none;border:0;color:#8f9bc4;font:inherit;text-align:left;padding:0;cursor:pointer;text-decoration:underline}
+.btn,.add,.sb{transition:transform .12s}.btn:active,.add:active,.sb:active{transform:scale(.97)}
+button:focus-visible,select:focus-visible{outline:3px solid var(--lo);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+:root{--bg:#f2f3f5;--bd:#dcdfe4;--ink:#0b0d10;--pr:#1f5bff;--pr2:#0b3fd0;--ac:#ffcc00;--soft:#e9ecf0;--lo:#1f5bff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0e11;--card:#16191e;--bd:#2a2f36;--ink:#050607;--soft:#1e2228;--lo:#6ea0ff}}
+:root[data-theme="dark"]{--bg:#0c0e11;--card:#16191e;--bd:#2a2f36;--ink:#050607;--soft:#1e2228;--lo:#6ea0ff}
+.btn{background:var(--ac);color:#0b0d10;box-shadow:0 8px 20px rgba(255,204,0,.28)}
+.bolt{background:var(--ac);box-shadow:0 6px 16px rgba(255,204,0,.35)}.bolt svg{fill:#0b0d10}
+.hero{background:radial-gradient(800px 380px at 88% -20%,rgba(31,91,255,.5),transparent 60%),radial-gradient(500px 300px at 0% 120%,rgba(255,204,0,.18),transparent 60%),#0b0d10}
+.au>div:first-child{background:radial-gradient(500px 300px at 90% 0%,rgba(31,91,255,.5),transparent 60%),#0b0d10}
+.cats button.on{background:var(--ac);color:#0b0d10}.how i{background:var(--ink);color:var(--ac)}
+.ctl{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.cti{display:flex;flex-direction:column;gap:4px;text-align:left;padding:14px;border:1px solid var(--bd);border-radius:18px;background:var(--card);color:var(--tx);font:inherit;cursor:pointer}
+.cti span{font-size:26px}.cti b{font:700 15px var(--hf)}.cti small{color:var(--mut);font-size:13px;line-height:1.35}
+@media(hover:hover){.cti:hover{border-color:var(--ac)}}
+.fl{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:6px}
+#pbody h3{font:700 17px var(--hf);margin:18px 0 6px}#pbody p,#pbody li{margin:0 0 8px}#pbody ul{padding-left:18px}
+</style>
+</head>
+<body>
+<nav><div class="w"><button class="logo" id="home" type="button" aria-label="Accueil"><span class="bolt"><svg width="20" height="20" viewBox="0 0 24 24" fill="#0f1720"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></span>Voltix Shop</button>
+<button class="cartb" id="navacc" type="button"></button><button class="cartb" id="navcart" type="button" aria-label="Voir le panier"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M3 4h2.5l2.2 11h10.5l2-8H6.5"/></svg>Panier<i id="nc">0</i></button></div></nav>
+<div class="test" id="tb">Version de test · prix d'exemple</div>
+
+<section id="s0" class="scr on"><div class="w au">
+<div><h1>Accédez à vos prix et commandez en 2 minutes</h1><ul><li>Catalogue et prix à jour</li><li>Panier et total en direct</li><li>Historique de vos commandes</li><li>Commande envoyée sur WhatsApp</li></ul></div>
+<div class="box p"><div class="tabs"><button id="tsu" class="on" type="button">Inscription client</button><button id="tli" type="button">Se connecter</button></div>
+<div id="fsu"><label class="f" for="a_type">Vous êtes</label><select id="a_type"><option>Particulier</option><option>Professionnel</option></select>
+<label class="f" for="a_nom">Nom et prénom</label><input id="a_nom" type="text" autocomplete="name">
+<div id="apro" style="display:none"><label class="f" for="a_soc">Entreprise</label><input id="a_soc" type="text" autocomplete="organization"><label class="f" for="a_tva">Numéro de TVA (facultatif)</label><input id="a_tva" type="text"></div>
+<label class="f" for="a_mail">Email</label><input id="a_mail" type="email" autocomplete="email">
+<label class="f" for="a_tel">Téléphone</label><input id="a_tel" type="tel" autocomplete="tel">
+<label class="f" for="a_adr">Adresse</label><input id="a_adr" type="text" autocomplete="street-address">
+<label class="f" for="a_ville">Code postal et ville</label><input id="a_ville" type="text" autocomplete="postal-code">
+<div class="f" style="margin-top:12px">Vos besoins</div>
+<label class="ck"><input type="checkbox" data-b="Matériel électrique"> Matériel électrique</label>
+<label class="ck"><input type="checkbox" data-b="Installation"> Installation</label>
+<label class="ck"><input type="checkbox" data-b="Mise aux normes"> Mise aux normes</label>
+<label class="ck"><input type="checkbox" data-b="Dépannage"> Dépannage</label>
+<label class="ck"><input type="checkbox" data-b="Éclairage et enseignes"> Éclairage et enseignes</label>
+<label class="f" for="a_pw">Mot de passe (8 caractères minimum)</label><input id="a_pw" type="password" autocomplete="new-password">
+<label class="ck" style="margin-top:12px"><input type="checkbox" id="a_ok"> J’accepte d’être contacté par Voltix Shop</label>
+<button class="btn" id="dosu" type="button">Créer mon compte</button></div>
+<div id="fli" style="display:none"><label class="f" for="l_mail">Email</label><input id="l_mail" type="email" autocomplete="email">
+<label class="f" for="l_pw">Mot de passe</label><input id="l_pw" type="password" autocomplete="current-password">
+<button class="btn" id="doli" type="button">Se connecter</button><button class="ft" id="fgot" type="button" style="margin-top:12px;color:var(--lo)">Mot de passe oublié ?</button></div>
+<div id="ffp" style="display:none"><h3>Mot de passe oublié</h3><p class="sm">Entrez l’email de votre compte. Nous vous enverrons un lien pour choisir un nouveau mot de passe.</p><label class="f" for="f_mail">Email</label><input id="f_mail" type="email" autocomplete="email"><button class="btn" id="dofp" type="button">Envoyer le lien</button><button class="ft" id="fback" type="button" style="margin-top:12px">Retour à la connexion</button></div>
+<div id="fnp" style="display:none"><h3>Nouveau mot de passe</h3><p class="sm">Cette étape s’ouvre depuis le lien reçu par email.</p><label class="f" for="n_pw">Nouveau mot de passe (8 caractères minimum)</label><input id="n_pw" type="password" autocomplete="new-password"><label class="f" for="n_pw2">Confirmer le mot de passe</label><input id="n_pw2" type="password" autocomplete="new-password"><button class="btn" id="donp" type="button">Enregistrer</button></div>
+<div class="sm" id="aok" style="display:none;color:#2a9d5c;margin-top:8px"></div>
+<div class="err" id="aerr"></div>
+<p class="sm">Démonstration : aucun vrai compte n'est créé et rien n'est enregistré.</p></div></div></section>
+<section id="s1" class="scr">
+<div class="hero"><div class="w"><span class="eb">⚡ Voltix Énergie · Le courant de vos projets</span><h1 id="hh">Tout l’électrique, au même endroit.</h1><p id="hp">Voltix Énergie, le courant de vos projets. Matériel électrique pour professionnels et particuliers : choisissez, voyez le prix, commandez sur WhatsApp.</p><input type="search" id="q" placeholder="Rechercher une prise, un câble, un disjoncteur…" aria-label="Rechercher"></div></div>
+<div class="w"><div class="how"><div><i>1</i><b>Choisissez</b><span>Parcourez le catalogue et ajoutez vos articles.</span></div><div><i>2</i><b>Voyez le prix</b><span>Le total s’affiche en direct, TVA 21 % incluse.</span></div><div><i>3</i><b>Commandez</b><span>Envoyez votre commande sur WhatsApp en un tap.</span></div></div>
+<h2 class="st">Nos catégories</h2><div class="ctl" id="ctl"></div><h2 class="st" id="cathead">Le catalogue</h2>
+<div class="cats" id="cats"></div><div class="tools"><span class="sm" id="cnt"></span><select id="sort" aria-label="Trier"><option value="">Trier : par défaut</option><option value="pa">Prix croissant</option><option value="pd">Prix décroissant</option><option value="az">Nom A–Z</option></select></div><div class="grid" id="list"></div></div>
+</section>
+
+<section id="s2" class="scr"><div class="w pg"><h2>Votre panier</h2>
+<div class="cols"><div class="box" id="cart"></div>
+<div><div class="box p"><div class="tot"><span>Total TTC</span><span id="tot"></span></div><div class="sm">TVA 21 % incluse. Prix valables 30 jours, confirmés par Voltix Shop. Paiement : espèces ou carte au retrait, virement ou Bancontact. Frais et délais de livraison confirmés avec votre commande.</div></div>
+<div class="box p"><h3>Vos coordonnées</h3>
+<label class="f" for="nom">Nom</label><input id="nom" type="text" autocomplete="name">
+<label class="f" for="tel">Téléphone</label><input id="tel" type="tel" autocomplete="tel">
+<label class="f" for="mode">Retrait ou livraison</label><select id="mode"><option>Retrait</option><option>Livraison</option></select>
+<label class="f" for="note">Remarque (facultatif)</label><textarea id="note"></textarea></div>
+<div class="err" id="err"></div>
+<button class="btn" id="send" type="button">Commander sur WhatsApp</button>
+<p class="sm" id="fb" style="display:none"></p>
+<button class="btn alt" id="copy" type="button">Copier la commande</button>
+<button class="btn alt" id="back" type="button">Continuer mes achats</button>
+<button class="btn alt" id="clr" type="button">Vider le panier</button></div></div></div></section>
+
+<section id="s4" class="scr"><div class="w pg">
+<div id="alog"><h2>Espace administrateur</h2><div class="box p"><label class="f" for="acode">Code d'accès</label><input id="acode" type="password" autocomplete="off"><div class="err" id="acerr"></div><button class="btn" id="acgo" type="button">Entrer</button><p class="sm">Démonstration : code simple, sans vraie sécurité.</p></div></div>
+<div id="apan" style="display:none"><h2>Administration</h2>
+<div class="tabs" id="atabs"><button data-t="prod" class="on" type="button">Produits</button><button data-t="cpt" type="button">Comptes</button><button data-t="cmd" type="button">Commandes</button><button data-t="imp" type="button">Import</button><button data-t="set" type="button">Réglages</button></div>
+<div id="atab"></div><button class="btn alt" id="aout" type="button">Quitter l'administration</button></div></div></section>
+<section id="s3" class="scr"><div class="w pg"><h2>Mon compte</h2><div class="cols"><div class="box p"><h3>Mes informations</h3><div id="ainfo"></div><button class="btn alt" id="logout" type="button">Se déconnecter</button></div><div class="box p"><h3>Mes commandes</h3><div id="ohist"></div></div></div></div></section>
+<section id="s5" class="scr"><div class="w pg"><h2 id="ptitle"></h2><div class="box p" id="pbody"></div><button class="btn alt" id="pback" type="button">Retour</button></div></section>
+<footer><div class="w"><b>Voltix Shop</b><span>Voltix Énergie · Le courant de vos projets.</span><span>Rue Frans Michiels 35, 6044 Roux · TVA BE0762450484</span><span>voltixenergie@hotmail.com</span><span id="ftel">WhatsApp : +32 491 13 60 67</span><span>Paiement : espèces ou carte au retrait, virement, Bancontact</span><div class="fl"><button class="ft" data-p="apropos" type="button">À propos</button><button class="ft" data-p="retours" type="button">Retours et remboursements</button><button class="ft" data-p="mentions" type="button">Mentions légales</button><button class="ft" data-p="privacy" type="button">Confidentialité</button><button class="ft" id="adm" type="button">Espace admin</button></div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="bar" id="bar"><div><span id="bt"></span><button id="see" type="button">Voir le panier</button></div></div>
+<script>
+var $=function(i){return document.getElementById(i)};
+var WA='32491136067',WA_TXT='+32 491 13 60 67',TV=1.21;
+var P=[["Prises et interrupteurs", "Prise 2P+T 16 A blanche", "pièce", 4.2, true, false, 3.65],
+["Prises et interrupteurs", "Prise double 2P+T 16 A", "pièce", 8.9, true, false, 7.74],
+["Prises et interrupteurs", "Interrupteur simple blanc", "pièce", 3.8, true, false, 3.3],
+["Prises et interrupteurs", "Interrupteur va-et-vient blanc", "pièce", 4.5, true, false, 3.91],
+["Prises et interrupteurs", "Prise RJ45 cat. 6", "pièce", 6.9, true, false, 6.0],
+["Prises et interrupteurs", "Plaque de finition simple", "pièce", 1.6, true, false, 1.39],
+["Prises et interrupteurs", "Boîte d’encastrement Ø67", "pièce", 0.6, true, false, 0.52],
+["Câbles et fils", "Câble 3G1,5 mm² (couronne 100 m)", "couronne", 62.0, true, false, 53.91],
+["Câbles et fils", "Câble 3G2,5 mm² (couronne 100 m)", "couronne", 98.0, true, false, 85.22],
+["Câbles et fils", "Câble 3G6 mm²", "mètre", 3.4, true, false, 2.96],
+["Câbles et fils", "Câble réseau cat. 6", "mètre", 0.55, true, false, 0.48],
+["Gaines et installation", "Gaine ICTA Ø20 (couronne 100 m)", "couronne", 38.0, true, false, 33.04],
+["Raccordement", "Bornes automatiques (boîte de 50)", "boîte", 11.01, true, false, 9.57],
+["Coffrets et protection", "Disjoncteur 10 A", "pièce", 6.5, true, false, 5.65],
+["Coffrets et protection", "Disjoncteur 20 A", "pièce", 7.0, true, false, 6.09],
+["Coffrets et protection", "Disjoncteur 32 A", "pièce", 9.8, true, false, 8.52],
+["Coffrets et protection", "Différentiel 40 A 30 mA type A", "pièce", 48.0, true, false, 41.74],
+["Coffrets et protection", "Coffret 2 rangées 13 modules", "pièce", 52.0, true, false, 45.22],
+["Éclairage LED", "Spot LED encastrable blanc chaud", "pièce", 3.9, true, false, 3.39],
+["Éclairage LED", "Spot LED 80 mm noir", "pièce", 3.4, true, false, 2.96],
+["Éclairage LED", "Hublot LED 18 W", "pièce", 14.5, true, false, 12.61],
+["Éclairage LED", "Ampoule LED E27 9 W", "pièce", 2.2, true, false, 1.91],
+["Bornes de recharge", "Borne de recharge Smapee", "pièce", 907.35, true, false, 789.0],
+["Prises et interrupteurs", "nino et alice", "pièce", 115000.0, true, false, 100000.0]];
+var IC={'Prises et interrupteurs':['rgba(31,111,209,.13)','#1f6fd1','<rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="9.5" cy="12" r="1.2"/><circle cx="14.5" cy="12" r="1.2"/>'],
+'Câbles et fils':['rgba(229,72,77,.13)','#e5484d','<path d="M3 8c4-4 6 4 9 0s5 4 9 0M3 16c4-4 6 4 9 0s5 4 9 0"/>'],
+'Coffrets et protection':['rgba(42,157,92,.14)','#2a9d5c','<rect x="6" y="3" width="12" height="18" rx="2"/><path d="M12 7v3"/><rect x="10" y="12" width="4" height="5" rx="1"/>'],
+'Éclairage LED':['rgba(255,196,0,.22)','#b98900','<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/>']};
+IC['_']=['rgba(120,130,145,.15)','#6b7785','<path d="M4 8l8-4 8 4v8l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v8"/>'];
+function cats(){var a=['Tout'].concat(CATL.map(function(c){return c[0]}));P.forEach(function(p){if(p[4]!==false&&!p[5]&&a.indexOf(p[0])<0)a.push(p[0])});return a}
+var cat='Tout',qs='',cart={};
+var f=function(n){return n.toFixed(2).replace('.',',')};
+function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+function ctl(i){var n=cart[i]||0;return n?'<div class="q"><button data-i="'+i+'" data-d="-1" type="button" aria-label="Moins">−</button><output>'+n+'</output><button data-i="'+i+'" data-d="1" type="button" aria-label="Plus">+</button></div>':'<button class="add" data-i="'+i+'" data-d="1" type="button">Ajouter</button>'}
+function drawCats(){$('cats').innerHTML=cats().map(function(c){return '<button data-c="'+c+'" class="'+(c===cat?'on':'')+'" type="button">'+c+'</button>'}).join('')}
+function drawList(){var h='',n=0,s=qs.toLowerCase();ord().forEach(function(i){var p=P[i];if(p[4]!==false&&!p[5]&&(cat==='Tout'||p[0]===cat)&&(!s||p[1].toLowerCase().indexOf(s)>=0)){var k=IC[p[0]]||IC['_'];n++;h+='<div class="pc"><div class="ic" style="--t:'+k[0]+';--c:'+k[1]+'"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+k[2]+'</svg></div><b>'+esc(p[1])+'</b><span class="sm">Vendu à la '+p[2]+'</span><div class="pr"><strong>'+f(p[3]*TV)+' €</strong> <span class="sm">TTC</span></div>'+ctl(i)+'</div>'}});$('cnt').textContent=n+' produit'+(n>1?'s':'');$('list').innerHTML=h||'<p class="sm">Aucun article trouvé.</p>'}
+function lines(){return Object.keys(cart).filter(function(i){return cart[i]>0}).map(function(i){var p=P[i];return {nom:p[1],unit:p[2],q:cart[i],pu:p[3]*TV,i:+i}})}
+function total(){return lines().reduce(function(s,l){return s+l.q*l.pu},0)}
+function count(){return lines().reduce(function(s,l){return s+l.q},0)}
+function bar(){var n=count();$('nc').textContent=n;$('bar').classList.toggle('on',n>0&&$('s1').classList.contains('on'));$('bt').textContent=n+' article'+(n>1?'s':'')+' · '+f(total())+' € TTC'}
+function drawCart(){var L=lines();$('cart').innerHTML=L.length?L.map(function(l){return '<div class="it"><div class="nm"><b>'+esc(l.nom)+'</b><span class="sm">'+f(l.pu)+' € × '+l.q+' = '+f(l.q*l.pu)+' €</span></div>'+ctl(l.i)+'</div>'}).join(''):'<div class="it sm">Votre panier est vide.</div>';$('tot').textContent=f(total())+' €'}
+var user=null,orders=[];
+function acc(){$('navacc').textContent=user?'Mon compte':'Connexion';$('navcart').style.display=user?'flex':'none'}
+function show(n){if(!user&&n>0&&n!=4&&n!=5)n=0;[0,1,2,3,4,5].forEach(function(k){$('s'+k).classList.toggle('on',k==n)});if(n==1)drawList();if(n==2)drawCart();if(n==3)drawAcc();if(n==4){$('alog').style.display=adm?'none':'block';$('apan').style.display=adm?'block':'none';if(adm)drawAdmin()}acc();bar();window.scrollTo(0,0)}
+function change(e){var b=e.target.closest('button');if(!b||b.dataset.i==null)return;var i=b.dataset.i,was=cart[i]||0;cart[i]=Math.max(0,was+(+b.dataset.d));if(!was&&cart[i]>0)toast(P[i][1]+' ajouté au panier');if($('s2').classList.contains('on')){drawCart()}else drawList();bar()}
+$('list').addEventListener('click',change);$('cart').addEventListener('click',change);
+$('cats').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cat=b.dataset.c;drawCats();drawList()});
+$('q').addEventListener('input',function(){qs=this.value;drawList()});
+$('see').addEventListener('click',function(){show(2)});$('navcart').addEventListener('click',function(){show(2)});$('back').addEventListener('click',function(){show(1)});$('home').addEventListener('click',function(){show(1)});
+function wrap(s,W){var ls=[],l='';s.replace(/\s*\(.*?\)/g,'').split(' ').forEach(function(w){if(l&&(l+' '+w).length>W){ls.push(l);l=w}else l=l?l+' '+w:w});if(l)ls.push(l);return ls}
+function txt(){var W=14,o=['Article'.padEnd(W)+' Qté '+'P.U.'.padStart(6)+' '+'Total'.padStart(7),'-'.repeat(W+19)];
+lines().forEach(function(l){var w=wrap(l.nom,W);o.push((w[0]||'').padEnd(W)+' '+String(l.q).padStart(3)+' '+f(l.pu).padStart(6)+' '+f(l.q*l.pu).padStart(7));for(var i=1;i<w.length;i++)o.push(w[i])});
+var t='*COMMANDE – Voltix Shop*\n\nNom : '+$('nom').value.trim()+'\nTél : '+$('tel').value.trim()+'\nMode : '+$('mode').value+'\n\n```'+o.join('\n')+'```\n\n*TOTAL TTC : '+f(total())+' €* (TVA 21 % incluse)';
+var n=$('note').value.trim();return n?t+'\n\nRemarque : '+n:t}
+function ok(){var m=!lines().length?'Ajoutez au moins un article.':!$('nom').value.trim()?'Indiquez votre nom.':!$('tel').value.trim()?'Indiquez un numéro de téléphone.':'';$('err').style.display=m?'block':'none';$('err').textContent=m;return !m}
+function cp(){var b=$('copy'),t=txt(),d=function(){b.textContent='Copié ✓';setTimeout(function(){b.textContent='Copier la commande'},2000)};try{navigator.clipboard.writeText(t).then(d,function(){b.textContent='Copie impossible'})}catch(e){b.textContent='Copie impossible'}}
+$('copy').addEventListener('click',function(){if(ok())cp()});
+$('send').addEventListener('click',function(){if(!ok())return;orders.unshift({d:new Date().toLocaleDateString('fr-FR'),n:count(),t:total(),L:lines()});allOrders.unshift({d:new Date().toLocaleDateString('fr-FR'),nom:$('nom').value.trim(),tel:$('tel').value.trim(),mode:$('mode').value,L:lines(),t:total(),st:'Nouvelle'});var u='https://wa.me/'+WA+'?text='+encodeURIComponent(txt());cp();if(u.length>6000)u='https://wa.me/'+WA;window.open(u,'_blank');var x=$('fb');x.style.display='block';x.innerHTML='Si WhatsApp ne s’est pas ouvert, la commande est copiée : ouvrez WhatsApp, écrivez à <b>'+WA_TXT+'</b> et collez-la. <a href="'+u+'" target="_blank" rel="noopener">Réessayer le lien WhatsApp</a>'});
+function tab(su){pan(su?'fsu':'fli');$('tsu').classList.toggle('on',su);$('tli').classList.toggle('on',!su);$('aerr').style.display='none'}
+function aerr(m){$('aerr').textContent=m;$('aerr').style.display='block'}
+function login(u){user=u;$('a_pw').value='';$('l_pw').value='';$('nom').value=u.nom;$('tel').value=u.tel;show(1)}
+$('tsu').addEventListener('click',function(){tab(true)});$('tli').addEventListener('click',function(){tab(false)});
+$('dosu').addEventListener('click',function(){var n=$('a_nom').value.trim(),m=$('a_mail').value.trim();
+if(!n)return aerr('Indiquez votre nom ou celui de votre entreprise.');if(m.indexOf('@')<1)return aerr('Indiquez une adresse email valide.');if($('a_pw').value.length<8)return aerr('Le mot de passe doit contenir au moins 8 caractères.');
+var pro=$('a_type').value=='Professionnel';if(pro&&!$('a_soc').value.trim())return aerr('Indiquez le nom de votre entreprise.');if(!$('a_ok').checked)return aerr('Cochez la case pour accepter d’être contacté.');
+var bes=[].slice.call(document.querySelectorAll('[data-b]:checked')).map(function(x){return x.dataset.b});
+var u={nom:n,mail:m,tel:$('a_tel').value.trim(),type:$('a_type').value,soc:pro?$('a_soc').value.trim():'',tva:pro?$('a_tva').value.trim():'',adr:$('a_adr').value.trim(),ville:$('a_ville').value.trim(),bes:bes};
+accts.unshift({nom:u.nom,mail:u.mail,tel:u.tel,type:u.type,soc:u.soc,tva:u.tva,adr:u.adr,ville:u.ville,bes:bes,st:'En attente'});login(u)});
+$('doli').addEventListener('click',function(){var m=$('l_mail').value.trim();if(m.indexOf('@')<1)return aerr('Indiquez votre adresse email.');if(!$('l_pw').value)return aerr('Indiquez votre mot de passe.');login({nom:m.split('@')[0],mail:m,tel:''})});
+$('navacc').addEventListener('click',function(){show(user?3:0)});
+function drawAcc(){var r=function(a,b){return '<div class="it"><div class="nm"><span class="sm">'+a+'</span><b>'+esc(b)+'</b></div></div>'};
+$('ainfo').innerHTML=r('Nom',user.nom)+r('Email',user.mail)+r('Téléphone',user.tel||'Non renseigné')+(user.type?r('Type',user.type+(user.soc?' · '+user.soc:'')):'')+(user.adr||user.ville?r('Adresse',[user.adr,user.ville].filter(Boolean).join(', ')):'');
+$('ohist').innerHTML=orders.length?orders.map(function(o,k){return '<div class="it"><div class="nm"><b>Commande du '+o.d+'</b><span class="sm">'+o.n+' article'+(o.n>1?'s':'')+' · '+f(o.t)+' € TTC</span></div><button class="sb" data-re="'+k+'" type="button">Commander à nouveau</button></div>'}).join(''):'<p class="sm">Aucune commande pour le moment.</p>'}
+$('logout').addEventListener('click',function(){user=null;cart={};orders=[];$('nom').value='';$('tel').value='';show(0)});
+var ADMIN='1234',adm=false,accts=[],allOrders=[],at='prod',cdel=-1;
+var ea=function(t){return esc(String(t)).replace(/"/g,'&quot;')};
+function drawAdmin(){var h='';var pa=accts.filter(function(a){return a.st=='En attente'}).length,nv=allOrders.filter(function(o){return o.st=='Nouvelle'}).length,np=P.filter(function(p){return !p[5]&&p[4]!==false}).length;
+[].forEach.call($('atabs').children,function(x){x.textContent={prod:'Produits',cpt:'Comptes'+(pa?' ('+pa+')':''),cmd:'Commandes'+(nv?' ('+nv+')':''),set:'Réglages',imp:'Import'}[x.dataset.t]});
+var kp='<div class="kpi"><div><b>'+np+'</b><span>Produits</span></div><div><b>'+pa+'</b><span>Comptes en attente</span></div><div><b>'+nv+'</b><span>Commandes à traiter</span></div></div>';
+if(at=='prod'){var cs=[];P.forEach(function(p){if(!p[5]&&cs.indexOf(p[0])<0)cs.push(p[0])});
+h='<div class="box p"><h3>Ajouter un produit</h3><label class="f" for="n_n">Nom</label><input id="n_n" type="text"><label class="f" for="n_p">Prix HT (€)</label><input id="n_p" type="number" step="0.01" min="0" inputmode="decimal"><label class="f" for="n_u">Unité</label><input id="n_u" type="text" value="pièce"><label class="f" for="n_c">Catégorie (choisir ou écrire une nouvelle)</label><input id="n_c" type="text" list="dl"><datalist id="dl">'+cs.map(function(c){return '<option value="'+ea(c)+'">'}).join('')+'</datalist><div class="err" id="nerr"></div><button class="btn" id="nadd" type="button">Ajouter</button></div>'
++'<div class="box">'+P.map(function(p,i){if(p[5])return '';return '<div class="it ar"'+(p[4]===false?' style="opacity:.55"':'')+'><input type="text" data-i="'+i+'" data-f="1" value="'+ea(p[1])+'" aria-label="Nom"><div class="ag3"><input type="number" step="0.01" min="0" inputmode="decimal" data-i="'+i+'" data-f="3" value="'+p[3]+'" aria-label="Prix HT"><input type="text" data-i="'+i+'" data-f="2" value="'+ea(p[2])+'" aria-label="Unité"><input type="text" list="dl" data-i="'+i+'" data-f="0" value="'+ea(p[0])+'" aria-label="Catégorie"></div>'+(p[6]!=null?'<span class="sm">Prix d’achat fournisseur : '+f(p[6])+' € HT</span>':'')+'<div class="ab"><button class="sb" data-act="hide" data-i="'+i+'" type="button">'+(p[4]===false?'Afficher':'Masquer')+'</button><button class="sb" data-act="del" data-i="'+i+'" type="button">Supprimer</button></div></div>'}).join('')+'</div>'}
+else if(at=='cpt'){h='<div class="box">'+(accts.length?accts.map(function(a,i){return '<div class="it ar"><div class="nm"><b>'+esc(a.nom)+'</b><span class="sm">'+esc(a.mail)+(a.tel?' · '+esc(a.tel):'')+'</span><span class="sm">'+esc([a.type,a.soc,a.tva,a.adr,a.ville].filter(Boolean).join(' · '))+'</span>'+(a.bes&&a.bes.length?'<span class="sm">Besoins : '+esc(a.bes.join(', '))+'</span>':'')+'</div><div class="ab"><span class="sm"><b>'+a.st+'</b></span>'+(a.st=='Validé'?'':'<button class="sb" data-act="ok" data-i="'+i+'" type="button">Valider</button><button class="sb" data-act="no" data-i="'+i+'" type="button">Refuser</button>')+(cdel===i?'<button class="sb" data-act="cdel" data-i="'+i+'" type="button">Confirmer la suppression</button><button class="sb" data-act="cx" type="button">Annuler</button>':'<button class="sb" data-act="adel" data-i="'+i+'" type="button">Supprimer</button>')+'</div></div>'}).join(''):'<div class="it sm">Aucune inscription pour le moment. Les comptes créés sur ce site apparaissent ici.</div>')+'</div>'}
+else if(at=='cmd'){h='<div class="box">'+(allOrders.length?allOrders.map(function(o,i){return '<div class="it ar"><div class="nm"><b>'+o.d+' · '+esc(o.nom)+'</b><span class="sm">'+esc(o.tel)+' · '+o.mode+' · '+f(o.t)+' € TTC · '+o.st+'</span></div><details><summary class="sm">Voir les articles</summary>'+o.L.map(function(l){return '<div class="sm">'+l.q+' × '+esc(l.nom)+' ('+f(l.pu)+' €)</div>'}).join('')+'</details>'+(o.st=='Nouvelle'?'<div class="ab"><button class="sb" data-act="done" data-i="'+i+'" type="button">Marquer traitée</button></div>':'')+'</div>'}).join(''):'<div class="it sm">Aucune commande pour le moment. Les commandes envoyées apparaissent ici.</div>')+'</div>'}
+else if(at=='imp'){h=impHtml()}
+else{h='<div class="box p"><h3>Réglages du site</h3><label class="f" for="s_wa">Numéro WhatsApp (avec indicatif, sans +)</label><input id="s_wa" type="tel" value="'+ea(WA)+'"><label class="f" for="s_h">Titre de la page d\'accueil</label><input id="s_h" type="text" value="'+ea($('hh').textContent)+'"><label class="f" for="s_s">Texte sous le titre</label><textarea id="s_s">'+esc($('hp').textContent)+'</textarea><label class="f"><input type="checkbox" id="s_t" style="width:auto"'+($('tb').style.display=='none'?'':' checked')+'> Afficher le bandeau « Version de test »</label></div>'}
+$('atab').innerHTML=kp+h}
+$('atabs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;at=b.dataset.t;[].forEach.call($('atabs').children,function(x){x.classList.toggle('on',x===b)});drawAdmin()});
+$('atab').addEventListener('change',function(e){var t=e.target;if(t.dataset.i!=null){var v=t.value;if(t.dataset.f==3)v=parseFloat(String(v).replace(',','.'))||0;P[+t.dataset.i][+t.dataset.f]=v;bar()}else if(t.id=='s_t')$('tb').style.display=t.checked?'':'none';else if(t.id=='i_file'&&t.files[0])rd(t.files[0],'utf-8');else if(t.dataset.m){imp.map[t.dataset.m]=+t.value}});
+$('atab').addEventListener('input',function(e){var t=e.target;if(t.id=='s_wa'){WA=t.value.replace(/\D/g,'');WA_TXT='+'+WA;$('ftel').textContent='WhatsApp : '+WA_TXT}else if(t.id=='s_h')$('hh').textContent=t.value;else if(t.id=='s_s')$('hp').textContent=t.value;else if(t.id=='i_m')imp.m=parseFloat(String(t.value).replace(',','.'))||0});
+$('atab').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var i=+b.dataset.i,a=b.dataset.act;if(b.id=='i_read'){parseImp();return}if(b.id=='i_go'){doImp();return}if(b.id=='i_re'){reMargin();return}
+if(b.id=='nadd'){var n=$('n_n').value.trim(),pr=parseFloat($('n_p').value.replace(',','.')),c=$('n_c').value.trim();if(!n||isNaN(pr)||!c){$('nerr').textContent='Renseignez le nom, le prix et la catégorie.';$('nerr').style.display='block';return}P.push([c,n,$('n_u').value.trim()||'pièce',pr,true]);drawAdmin();return}
+if(a=='hide'){P[i][4]=P[i][4]===false;if(P[i][4]===false)cart[i]=0}else if(a=='del'){P[i][5]=true;cart[i]=0}else if((a=='ok'||a=='no')&&accts[i].st!='Validé')accts[i].st=a=='ok'?'Validé':'Refusé';else if(a=='adel')cdel=i;else if(a=='cx')cdel=-1;else if(a=='cdel'){accts.splice(i,1);cdel=-1}else if(a=='done')allOrders[i].st='Traitée';else return;drawAdmin();bar()});
+$('adm').addEventListener('click',function(){show(4)});
+$('acgo').addEventListener('click',function(){if($('acode').value===ADMIN){adm=true;$('acode').value='';$('acerr').style.display='none';show(4)}else{$('acerr').textContent='Code incorrect.';$('acerr').style.display='block'}});
+$('aout').addEventListener('click',function(){adm=false;show(user?1:0)});
+$('a_type').addEventListener('change',function(){$('apro').style.display=this.value=='Professionnel'?'block':'none'});
+function pan(w){['fsu','fli','ffp','fnp'].forEach(function(k){$(k).style.display=k==w?'block':'none'});$('aerr').style.display='none';$('aok').style.display='none'}
+$('fgot').addEventListener('click',function(){pan('ffp');$('f_mail').value=$('l_mail').value});
+$('fback').addEventListener('click',function(){pan('fli')});
+$('dofp').addEventListener('click',function(){if($('f_mail').value.trim().indexOf('@')<1)return aerr('Indiquez l’adresse email de votre compte.');pan('fnp');$('aok').textContent='Si un compte existe avec cet email, un lien de réinitialisation est envoyé (démonstration : aucun email réel).';$('aok').style.display='block'});
+$('donp').addEventListener('click',function(){var a=$('n_pw').value;if(a.length<8)return aerr('Le mot de passe doit contenir au moins 8 caractères.');if(a!==$('n_pw2').value)return aerr('Les deux mots de passe ne sont pas identiques.');$('n_pw').value='';$('n_pw2').value='';pan('fli');$('aok').textContent='Mot de passe modifié. Vous pouvez vous connecter.';$('aok').style.display='block'});
+var so='',tt;
+function ord(){var a=P.map(function(_,i){return i});if(so=='pa')a.sort(function(x,y){return P[x][3]-P[y][3]});else if(so=='pd')a.sort(function(x,y){return P[y][3]-P[x][3]});else if(so=='az')a.sort(function(x,y){return P[x][1].localeCompare(P[y][1],'fr')});return a}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},1600)}
+$('sort').addEventListener('change',function(){so=this.value;drawList()});
+$('clr').addEventListener('click',function(){cart={};drawCart();bar();toast('Panier vidé')});
+$('ohist').addEventListener('click',function(e){var b=e.target.closest('[data-re]');if(!b)return;orders[+b.dataset.re].L.forEach(function(l){var p=P[l.i];if(p&&p[4]!==false&&!p[5])cart[l.i]=(cart[l.i]||0)+l.q});toast('Articles ajoutés au panier');show(2)});
+[].forEach.call(document.querySelectorAll('input[type=password]'),function(inp){var b=document.createElement('button');b.type='button';b.className='eye';b.textContent='Afficher';b.addEventListener('click',function(){var h=inp.type=='password';inp.type=h?'text':'password';b.textContent=h?'Masquer':'Afficher'});inp.insertAdjacentElement('afterend',b)});
+[['l_pw','doli'],['l_mail','doli'],['a_pw','dosu'],['f_mail','dofp'],['n_pw2','donp'],['acode','acgo']].forEach(function(x){$(x[0]).addEventListener('keydown',function(e){if(e.key=='Enter')$(x[1]).click()})});
+var imp={rows:[],hdr:[],map:{n:-1,p:-1,u:-1,c:-1},m:15,txt:'',res:''};
+function ierr(m){var e=$('i_err');e.textContent=m;e.style.display='block'}
+function rd(file,enc){var fr=new FileReader();fr.onload=function(){var r=fr.result;if(enc=='utf-8'&&r.indexOf('\uFFFD')>=0){rd(file,'windows-1252');return}$('i_txt').value=r;parseImp()};fr.readAsText(file,enc)}
+function splitL(l,d){var o=[],c='',q=false;for(var k=0;k<l.length;k++){var ch=l[k];if(ch=='"'){if(q&&l[k+1]=='"'){c+='"';k++}else q=!q}else if(ch==d&&!q){o.push(c);c=''}else c+=ch}o.push(c);return o.map(function(x){return x.trim()})}
+function num(v){var s=String(v||'').replace(/[^\d,.\-]/g,'');if(s.indexOf(',')>=0)s=s.replace(/\./g,'').replace(',','.');var x=parseFloat(s);return isNaN(x)?null:x}
+function parseImp(){imp.txt=$('i_txt').value;var t=imp.txt.replace(/\r/g,'').split('\n').filter(function(l){return l.trim()});
+if(t.length<2){ierr('Ajoutez un fichier avec une ligne d’en-tête et au moins un produit.');return}
+var d=t[0].indexOf('\t')>=0?'\t':(t[0].split(';').length>=t[0].split(',').length?';':',');
+var rows=t.map(function(l){return splitL(l,d)});imp.hdr=rows[0].map(function(x,k){return x||'Colonne '+(k+1)});imp.rows=rows.slice(1);imp.res='';
+var g=function(re){for(var k=0;k<imp.hdr.length;k++)if(re.test(imp.hdr[k]))return k;return -1};
+imp.map={n:g(/d[ée]signation|libell[ée]|article|nom|produit/i),p:g(/prix|tarif|montant|\bpu\b/i),u:g(/unit[ée]/i),c:g(/cat[ée]gorie|famille|gamme/i)};drawAdmin()}
+function doImp(){var M=imp.map;if(M.n<0||M.p<0){ierr('Choisissez au moins les colonnes Désignation et Prix.');return}
+var mg=1+(imp.m||0)/100,up=0,nw=0,sk=0,add=$('i_new').checked;
+imp.rows.forEach(function(r){var nm=(r[M.n]||'').trim(),a=num(r[M.p]);if(!nm||a===null){sk++;return}
+var pv=Math.round(a*mg*100)/100,idx=-1;P.forEach(function(p,k){if(!p[5]&&p[1].toLowerCase()==nm.toLowerCase())idx=k});
+if(idx>=0){P[idx][3]=pv;P[idx][6]=a;up++}else if(add){P.push([(M.c>=0&&r[M.c])||'Importé',nm,(M.u>=0&&r[M.u])||'pièce',pv,true,false,a]);nw++}else sk++});
+imp.res=up+' mis à jour · '+nw+' nouveaux · '+sk+' ignorés. Marge appliquée : '+(imp.m||0)+' %.';drawAdmin();bar()}
+function reMargin(){var mg=1+(imp.m||0)/100,n=0;P.forEach(function(p){if(!p[5]&&p[6]!=null){p[3]=Math.round(p[6]*mg*100)/100;n++}});imp.res=n+' produit'+(n>1?'s':'')+' recalculé'+(n>1?'s':'')+' avec '+(imp.m||0)+' % de marge.';drawAdmin();bar()}
+function impHtml(){var h='<div class="box p"><h3>Importer les prix du fournisseur</h3><p class="sm">Chargez un fichier CSV (dans Excel : Enregistrer sous, puis CSV) ou collez les cellules copiées depuis Excel. Colonnes utiles : désignation, prix d’achat HT, unité et catégorie (facultatives).</p><label class="f" for="i_file">Fichier CSV</label><input id="i_file" type="file" accept=".csv,.txt,text/csv,text/plain"><label class="f" for="i_txt">ou collez ici</label><textarea id="i_txt" placeholder="Désignation;Prix HT;Unité;Catégorie">'+esc(imp.txt)+'</textarea><label class="f" for="i_m">Marge ajoutée au prix d’achat HT (%). Le client voit le prix TTC (+21 %)</label><input id="i_m" type="number" step="1" min="0" inputmode="decimal" value="'+imp.m+'"><button class="btn alt" id="i_read" type="button">Lire les données</button><div class="err" id="i_err"></div></div>';
+if(imp.rows.length){var op=function(sel){return '<option value="-1">— aucune —</option>'+imp.hdr.map(function(x,k){return '<option value="'+k+'"'+(sel==k?' selected':'')+'>'+esc(x)+'</option>'}).join('')};
+h+='<div class="box p"><h3>Correspondance des colonnes</h3><label class="f" for="m_n">Désignation</label><select id="m_n" data-m="n">'+op(imp.map.n)+'</select><label class="f" for="m_p">Prix d’achat HT</label><select id="m_p" data-m="p">'+op(imp.map.p)+'</select><label class="f" for="m_u">Unité (facultatif)</label><select id="m_u" data-m="u">'+op(imp.map.u)+'</select><label class="f" for="m_c">Catégorie (facultatif)</label><select id="m_c" data-m="c">'+op(imp.map.c)+'</select><div class="f" style="margin-top:12px">Aperçu</div>'+imp.rows.slice(0,3).map(function(r){return '<div class="sm">'+esc(r.join(' | '))+'</div>'}).join('')+'<label class="ck" style="margin-top:12px"><input type="checkbox" id="i_new" checked> Ajouter les nouveaux produits</label><button class="btn" id="i_go" type="button">Importer '+imp.rows.length+' ligne'+(imp.rows.length>1?'s':'')+'</button></div>'}
+if(imp.res)h+='<div class="box p"><b>'+esc(imp.res)+'</b></div>';
+h+='<div class="box p"><h3>Réappliquer la marge</h3><p class="sm">Recalcule le prix client de tous les produits importés à partir de leur prix d’achat et de la marge ci-dessus.</p><button class="btn alt" id="i_re" type="button">Réappliquer la marge</button></div>';
+return h}
+var CATL=[['Coffrets et protection','🛡️','Disjoncteurs, différentiels, coffrets, peignes, parafoudres'],['Câbles et fils','🔌','VOB, XVB, XVB-F, câbles d’alimentation, fils souples'],['Prises et interrupteurs','🔘','Prises, interrupteurs, variateurs, RJ45, USB, plaques'],['Éclairage LED','💡','Spots, panneaux, réglettes, projecteurs, rubans LED'],['Gaines et installation','🧰','Gaines annelées, tubes, boîtes, colliers, fixations'],['Matériel industriel','⚙️','Contacteurs, relais, borniers, alimentations, armoires'],['Domotique','📱','Modules connectés, détecteurs, thermostats, automatismes'],['Sécurité','📹','Caméras IP, enregistreurs, détecteurs, accessoires'],['Bornes de recharge','🔋','Bornes domestiques, câbles de recharge, protections'],['Outillage','🛠️','Tournevis isolés, pinces, multimètres, testeurs'],['Raccordement','🔗','Bornes, Wago, cosses, embouts, presse-étoupes'],['Mise à la terre','🌍','Conducteurs, piquets, barrettes, colliers de liaison']];
+$('ctl').innerHTML=CATL.map(function(c){return '<button class="cti" data-c="'+c[0]+'" type="button"><span>'+c[1]+'</span><b>'+c[0]+'</b><small>'+c[2]+'</small></button>'}).join('');
+$('ctl').addEventListener('click',function(e){var b=e.target.closest('.cti');if(!b)return;cat=b.dataset.c;drawCats();drawList();$('cathead').scrollIntoView({behavior:'smooth'})});
+var PG={apropos:['À propos','<p><b>Voltix Énergie, le courant de vos projets.</b></p><p>Voltix Énergie est une entreprise spécialisée dans le domaine électrique, avec une volonté claire : proposer des solutions fiables, du matériel de qualité et un service adapté aux besoins des professionnels comme des particuliers.</p><p>Notre boutique en ligne facilite l’accès au matériel électrique pour les installations résidentielles, les projets de rénovation et les applications professionnelles. Notre priorité : une expérience d’achat simple, des informations claires et un accompagnement de qualité.</p><h3>Nos engagements</h3><ul><li><b>Qualité</b> : des produits adaptés aux exigences des installations électriques.</li><li><b>Simplicité</b> : rechercher et commander du matériel en ligne facilement.</li><li><b>Professionnalisme</b> : une offre pensée pour les électriciens et les particuliers.</li><li><b>Confiance</b> : une communication claire sur les produits, les prix, les délais et les conditions de vente.</li><li><b>Évolution</b> : un catalogue qui grandit avec les besoins du marché.</li></ul><h3>Notre objectif</h3><p>Devenir un partenaire de confiance pour les professionnels de l’électricité et les particuliers qui cherchent du matériel fiable pour leurs projets.</p>'],
+retours:['Retours et remboursements','<p class="sm">Conditions applicables aux achats de matériel électrique auprès de Voltix Énergie via son site, pour les clients particuliers et, selon la loi, professionnels.</p><h3>Droit de rétractation (particuliers)</h3><p>Le client particulier dispose en principe de 14 jours calendrier à compter de la réception pour se rétracter, sans justification. Il notifie sa décision par e-mail à voltixenergie@hotmail.com en indiquant son numéro de commande et les produits concernés. Les produits sont retournés dans les 14 jours suivant cette notification.</p><h3>Conditions de retour</h3><p>Les produits doivent être retournés complets (accessoires et documentation), bien emballés, avec la preuve d’achat ou le numéro de commande. Le client peut manipuler le produit pour en vérifier la nature et le fonctionnement ; sa responsabilité peut être engagée en cas de dépréciation due à des manipulations excessives. Le matériel installé, raccordé, utilisé ou endommagé est apprécié au cas par cas, dans le respect des droits légaux du consommateur.</p><h3>Exclusions</h3><p>Le droit de rétractation peut être exclu dans les cas prévus par la loi : produits sur mesure ou clairement personnalisés, certains produits scellés ne pouvant être renvoyés pour des raisons d’hygiène ou de santé. Les produits électriques ne sont pas exclus du seul fait qu’ils ont été ouverts.</p><h3>Frais de retour</h3><p>En cas de rétractation, les frais directs de retour sont à la charge du client, sauf prise en charge par Voltix Énergie ou disposition légale contraire. Pour un produit défectueux, non conforme ou livré par erreur, les frais ne sont pas imputés au consommateur lorsque la loi les met à la charge du vendeur.</p><h3>Remboursement</h3><p>Voltix Énergie rembourse les sommes dues, frais de livraison standard initiaux compris, au plus tard dans les 14 jours suivant la notification, et peut différer jusqu’à la récupération des produits ou la preuve d’expédition. Le remboursement se fait par le moyen de paiement utilisé à la commande, sauf accord contraire. Les frais d’une livraison plus coûteuse que la livraison standard ne sont pas nécessairement remboursés.</p><h3>Échange</h3><p>Sous réserve de disponibilité. Contactez-nous par e-mail avec le numéro de commande, la référence à échanger et la référence souhaitée. À défaut d’échange direct, le client peut se rétracter si les conditions légales sont réunies, puis repasser commande.</p><h3>Produit défectueux ou erreur de livraison</h3><p>Contactez-nous rapidement avec votre numéro de commande et, si possible, des photos. Nous proposerons une solution (remplacement, réparation, remboursement…) sans limiter la garantie légale de conformité.</p><h3>Commandes professionnelles</h3><p>Le droit de rétractation de 14 jours ne s’applique généralement pas aux professionnels. Toute reprise ou tout échange doit être préalablement accepté par Voltix Énergie et peut être soumis à des conditions particulières.</p><h3>Contact</h3><p>Voltix Énergie · voltixenergie@hotmail.com · 0491 13 60 67</p><p class="sm">Version à compléter et à faire vérifier avant publication.</p>'],
+mentions:['Mentions légales','<p><b>Voltix Énergie (Voltix Shop)</b><br>Indépendant complémentaire<br>Rue Frans Michiels 35, 6044 Roux, Belgique<br>TVA : BE0762450484<br>E-mail : voltixenergie@hotmail.com<br>Téléphone et WhatsApp : 0491 13 60 67</p><p class="sm">Version à compléter (numéro d’entreprise, conditions générales de vente) et à faire vérifier avant publication.</p>'],
+privacy:['Confidentialité','<p>Voltix Shop collecte les informations que vous saisissez (nom, email, téléphone, adresse, besoins, commandes) pour gérer votre compte, préparer vos commandes et vous contacter. Elles sont utilisées uniquement pour cela. Vous pouvez demander l’accès, la correction ou la suppression de vos données en écrivant à voltixenergie@hotmail.com.</p><p class="sm">Texte provisoire, à faire vérifier avant publication.</p>']};
+function page(k){$('ptitle').textContent=PG[k][0];$('pbody').innerHTML=PG[k][1];show(5)}
+[].forEach.call(document.querySelectorAll('[data-p]'),function(b){b.addEventListener('click',function(){page(b.dataset.p)})});
+$('pback').addEventListener('click',function(){show(user?1:0)});
+var SHEET_URL='https://docs.google.com/spreadsheets/d/e/2PACX-1vSvJRk1hNWGRdreqfaHamY2QxTxmwaCCX1Hsux0lAClqgf4HvQ5zyq0keBSA2BzXDThG7JNJrG4PCwP/pub?gid=2&single=true&output=csv'; /* Collez ici le lien CSV de l’onglet « Site public » publié depuis Google Sheets */
+function loadSheet(){if(!SHEET_URL)return;fetch(SHEET_URL).then(function(r){return r.text()}).then(function(t){var L=t.replace(/\r/g,'').split('\n').filter(function(l){return l.trim()}).slice(1),np=[];L.forEach(function(l){var c=splitL(l,','),pr=num(c[3]);if(c[1]&&pr!==null)np.push([c[0]||'Autre',c[1],c[2]||'pièce',pr,true,false,null])});if(np.length){P=np;cart={};drawCats();drawList();bar()}}).catch(function(){})}
+loadSheet();
+drawCats();show(0);
+</script>
+</body>
+</html>
